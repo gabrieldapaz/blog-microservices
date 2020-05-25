@@ -15,10 +15,14 @@ app.post('/events', (req, res) => {
   events.push(event);
 
   // Missing handling code to avoid one of them fall.
-  axios.post('http://localhost:4000/events', event);
-  axios.post('http://localhost:4001/events', event);
-  axios.post('http://localhost:4002/events', event);
-  axios.post('http://localhost:4003/events', event);
+  axios
+    .post('http://posts-clusterip-srv:4000/events', event)
+    .catch(function (error) {
+      console.log(error);
+    });
+  // axios.post('http://localhost:4001/events', event);
+  // axios.post('http://localhost:4002/events', event);
+  // axios.post('http://localhost:4003/events', event);
 
   res.send({ status: 'OK' });
 });
