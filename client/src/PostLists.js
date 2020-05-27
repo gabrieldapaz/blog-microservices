@@ -9,7 +9,7 @@ export default () => {
   // Async functions returns promises
   // Await until get the result
   const fetchPosts = async () => {
-    const res = await Axios.get('http://localhost:4002/posts');
+    const res = await Axios.get('http://posts.com/posts');
 
     setPosts(res.data);
   };
