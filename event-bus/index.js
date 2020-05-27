@@ -20,9 +20,24 @@ app.post('/events', (req, res) => {
     .catch(function (error) {
       console.log(error);
     });
-  // axios.post('http://localhost:4001/events', event);
-  // axios.post('http://localhost:4002/events', event);
-  // axios.post('http://localhost:4003/events', event);
+
+  axios
+  .post('http://comments-srv:4001/events', event)
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  axios
+  .post('http://query-srv:4002/events', event)
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  axios
+  .post('http://moderation:4003/events', event)
+  .catch(function (error) {
+    console.log(error);
+  });
 
   res.send({ status: 'OK' });
 });
