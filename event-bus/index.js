@@ -21,21 +21,15 @@ app.post('/events', (req, res) => {
       console.log(error);
     });
 
-  axios
-  .post('http://comments-srv:4001/events', event)
-  .catch(function (error) {
+  axios.post('http://comments-srv:4001/events', event).catch(function (error) {
     console.log(error);
   });
 
-  axios
-  .post('http://query-srv:4002/events', event)
-  .catch(function (error) {
+  axios.post('http://query-srv:4002/events', event).catch(function (error) {
     console.log(error);
   });
 
-  axios
-  .post('http://moderation:4003/events', event)
-  .catch(function (error) {
+  axios.post('http://moderation:4003/events', event).catch(function (error) {
     console.log(error);
   });
 
